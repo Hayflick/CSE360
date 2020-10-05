@@ -19,6 +19,7 @@ public class AddingMachine {
 	
   private int total;	//	variable returned to user containing total of the operations performed
   private ArrayList<String> history = new ArrayList<String>();	//	list that records all operations
+  private String summary = "";	// string representation of ArrayList
   
   //Constructor that initializes class variable total to 0 and adds a 0 to the beginning of history
   public AddingMachine () {
@@ -63,8 +64,6 @@ public class AddingMachine {
   //Function returning string representation of the history of operations performed via ArrayList
   public String toString () {
 	  
-	  String summary = "";
-	  
 	  for(int i = 0; i < history.size(); i++)
 	  {
 		  summary = summary + (history.get(i) + " ");
@@ -75,13 +74,14 @@ public class AddingMachine {
   }
 
   /*
-   * Function clearing memory of all previous operations from the ArrayList and resetting the total
-   * value to 0.
+   * Function clears memory of all previous operations from the ArrayList, resets the value of
+   * summary, and resetting the total value to 0.
    * */
   public void clear() {
 	  
 	  total = 0;
 	  history.clear();
+	  summary = "";
 	  
   }
 }
