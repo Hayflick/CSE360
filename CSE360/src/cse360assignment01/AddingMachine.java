@@ -11,14 +11,17 @@ import java.util.*;
  *via standard output.
  *
  * @author Aria Salehi
- * @version 1.0
+ * @version 1.5
  * @since 10/4/2020
+ * 
+ * Class: CSE360 (Thursday Session)
+ * 
  */
 
 public class AddingMachine {
 	
   private int total;	//	variable returned to user containing total of the operations performed
-  private ArrayList<String> history = new ArrayList<String>();	//	list that records all operations
+  private ArrayList<String> history = new ArrayList<String>(10);	//	list that records all operations
   private String summary = null;	// string representation of ArrayList
   
   //Constructor that initializes class variable total to 0 and adds a 0 to the beginning of history
@@ -64,6 +67,8 @@ public class AddingMachine {
   //Function returning string representation of the history of operations performed via ArrayList
   public String toString () {
 	  
+	  summary = "";
+	  
 	  for(int i = 0; i < history.size(); i++)
 	  {
 		  summary = summary + (history.get(i) + " ");
@@ -84,4 +89,39 @@ public class AddingMachine {
 	  summary = null;
 	  
   }
+}
+
+
+//Test environment to examine output
+class TestEnvironment {
+	
+	public static void main (String[] args) {
+		
+		AddingMachine test = new AddingMachine();
+		
+		test.add(5);
+		System.out.println(test.getTotal());
+		System.out.println(test.toString());
+		test.add(10);
+		test.add(20);
+		test.add(40);
+		test.add(80);
+		test.add(160);
+		System.out.println(test.getTotal());
+		System.out.println(test.toString());
+		test.subtract(20);
+		System.out.println(test.getTotal());
+		System.out.println(test.toString());
+		test.subtract(18);
+		test.subtract(13);
+		test.subtract(14);
+		test.subtract(15);
+		test.subtract(16);
+		System.out.println(test.getTotal());
+		System.out.println(test.toString());
+		test.clear();
+		System.out.println(test.getTotal());
+		System.out.println(test.toString());
+		
+	}
 }
